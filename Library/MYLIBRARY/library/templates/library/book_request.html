@@ -1,0 +1,48 @@
+{%extends "library/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+{% if messages%}
+{% for message in messages%}
+    <h2><div class="alert alert-{{message.tags }}">
+        {{message}}</div></h2>
+{%endfor%}
+{%endif%}
+
+<div class="container">
+    <form method="post">
+        {% csrf_token%}
+        <div class="form-group">
+            <label >name</label>
+            <input type="text" class="form-control" name="Name" aria-describedby="text" value="{{user.username}}">
+        </div>
+        <div class="form-group">
+            <label >Email address</label>
+            <input type="email" class="form-control" name="email_id" aria-describedby="emailHelp"
+                   value="{{user.profile.email_id}}">
+        </div>
+        <div class="form-group">
+            <label >address</label>
+            <input type="text" class="form-control" name="address" value="{{user.profile.address}}">
+        </div>
+        <div class="form-group">
+            <label >town</label>
+            <input type="text" class="form-control" name="town" value="{{user.profile.town}}">
+        </div>
+        <div class="form-group">
+            <label >adhar_card</label>
+            <input type="text" class="form-control" name="adhar_card" value="{{user.profile.adhar_card}}">
+        </div>
+        <div class="form-group">
+            <label >book_name</label>
+            <input type="text" class="form-control" name="book_name" value="{{book.book_name}}">
+        </div>
+        <div class="form-group">
+            <label >Copies_required</label>
+            <input type="text" class="form-control" name="Copies_required" required="True">
+            <small  class="form-text text-muted">Available book count({{book.Number_of_copies}}).</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{%endblock%}

@@ -1,0 +1,10 @@
+<div>
+    <h2>book name</h2>
+    {{book.book_name}}<br>
+    <h2>Number of copies available</h2>
+    {{book.Number_of_copies}}
+</div>
+
+<div class="container">
+    <a href="{%url 'book_request' book.id%}">borrow</a>
+</div>

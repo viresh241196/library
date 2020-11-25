@@ -1,0 +1,6 @@
+{% load crispy_forms_tags %}
+<form method="POST">
+    {% csrf_token %}
+    {{profile_form| crispy}}
+    <input type="submit" value="Submit">
+</form>

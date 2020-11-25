@@ -1,0 +1,38 @@
+{%extends "library/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+{% if messages%}
+{% for message in messages%}
+<h2>
+    <div class="alert alert-{{message.tags }}">
+        {{message}}
+    </div>
+</h2>
+{%endfor%}
+{%endif%}
+<div class="container">
+    <div class="content-section">
+        <div class="media">
+            <div class="media-body">
+                <div class="legendary"><h3>Profile</h3></div>
+                <h4 class="account-heading">Name : {{ data.name }}</h4>
+                <h4 class="account-heading">Email : {{ data.email_id }}</h4>
+                <h4 class="account-heading">Address : {{ data.address }}</h4>
+                <h4 class="account-heading">Town : {{ data.town }}</h4>
+                <h4 class="account-heading">DOB : {{ data.Date_of_Birth }}</h4>
+                <h4 class="account-heading">Adhar card : {{ data.adhar_card }}</h4>
+                <h4 class="account-heading">Book staus : {{ data.book_status }}</h4>
+                <h4 class="account-heading">Book name : {{ data.book_name }}</h4>
+                <h4 class="account-heading">Number of Copies : {{ data.copies_taken }}</h4>
+                <h4 class="account-heading">Borrow date : {{ data.borrow_date }}</h4>
+                <h4 class="account-heading">Return date : {{ data.return_date }}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <a href="{%url 'book_return'%}">Return book</a>
+
+    </div>
+</div>
+
+{%endblock%}
